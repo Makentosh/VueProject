@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
     <v-container fluid fill-height>
         <v-layout align-center justify-center>
@@ -35,8 +36,8 @@
                     <v-card-actions>
                         <v-spacer />
                         <v-btn color="primary"
-                        @click="onSubmit"
-                        :disabled="!valid"
+                               @click="onSubmit"
+                               :disabled="!valid"
                         >Login</v-btn>
                     </v-card-actions>
                 </v-card>
