@@ -6,7 +6,8 @@
                 <h1 class="text--secondary mb-3">My ads</h1>
 
                 <v-card class="elevation-10 mb-3"
-                v-for="ad in ads" :key="ad.id">
+                        v-for="ad in myAds"
+                        :key="ad.id">
                     <v-layout row>
                         <v-flex xs4>
                             <v-card-media
@@ -35,19 +36,11 @@
 
 <script>
     export default {
-        data () {
-            return {
-                ads: [
-                    {
-                        title: 'First image',
-                        description: 'Hello i`m description',
-                        promo: false,
-                        imageSrc: 'https://images5.alphacoders.com/947/thumb-1920-947824.png',
-                        id: 123
-                    }
-                ]
-            }
-        }
+      computed: {
+          myAds () {
+              return this.$store.getters.myAds
+          }
+      }
     }
 </script>
 
