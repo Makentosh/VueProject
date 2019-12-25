@@ -66,7 +66,7 @@
                 title: '',
                 description: '',
                 promo: false,
-                valid: false,
+                valid: false
             }
         },
 
@@ -76,9 +76,10 @@
                     const ad = {
                         title: this.title,
                         description: this.description,
-                        promo: this.promo
+                        promo: this.promo,
+                        imageSrc: 'https://i.pinimg.com/originals/c5/6d/77/c56d77398e83eb02a033511a95dde108.jpg'
                     }
-                    console.log(ad)
+                    this.$store.dispatch('createAd', ad)
                 }
             }
         }
