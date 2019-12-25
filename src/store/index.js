@@ -5,7 +5,7 @@ import ads from './ads'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    modules: {
-        ads
-    }
+  modules: {
+    ads
+  }
 })

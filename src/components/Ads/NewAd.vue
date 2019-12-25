@@ -61,28 +61,28 @@
 
 <script>
     export default {
-        data () {
-            return {
-                title: '',
-                description: '',
-                promo: false,
-                valid: false
-            }
-        },
-
-        methods: {
-            createAd() {
-                if(this.$refs.form.validate()) {
-                    const ad = {
-                        title: this.title,
-                        description: this.description,
-                        promo: this.promo,
-                        imageSrc: 'https://i.pinimg.com/originals/c5/6d/77/c56d77398e83eb02a033511a95dde108.jpg'
-                    }
-                    this.$store.dispatch('createAd', ad)
-                }
-            }
+      data () {
+        return {
+          title: '',
+          description: '',
+          promo: false,
+          valid: false
         }
+      },
+
+      methods: {
+        createAd () {
+          if (this.$refs.form.validate()) {
+            const ad = {
+              title: this.title,
+              description: this.description,
+              promo: this.promo,
+              imageSrc: 'https://i.pinimg.com/originals/c5/6d/77/c56d77398e83eb02a033511a95dde108.jpg'
+            }
+            this.$store.dispatch('createAd', ad)
+          }
+        }
+      }
     }
 </script>
 

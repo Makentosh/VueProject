@@ -58,37 +58,37 @@
 
 <script>
     export default {
-        data () {
-            return {
-                email: '',
-                password: '',
-                valid: false,
-                confirmPassword: '',
-                emailRules: [
-                    v => !!v || 'E-mail is required',
-                    v => /.+@.+/.test(v) || 'E-mail must be valid',
-                ],
-                passwordRules: [
-                    v => !!v || 'Password is required',
-                    v => v.length >= 6 || 'Password must be less than 6 characters',
-                ],
-                confirmPasswordRules: [
-                    v => !!v || 'Password is required',
-                    v => v === this.password|| 'Password should match',
-                ]
-            }
-        },
-        methods: {
-            onSubmit () {
-                if (this.$refs.form.validate()) {
-                    const user = {
-                        email: this.email,
-                        password: this.password
-                    }
-                    console.log(user)
-                }
-            }
+      data () {
+        return {
+          email: '',
+          password: '',
+          valid: false,
+          confirmPassword: '',
+          emailRules: [
+            v => !!v || 'E-mail is required',
+            v => /.+@.+/.test(v) || 'E-mail must be valid'
+          ],
+          passwordRules: [
+            v => !!v || 'Password is required',
+            v => v.length >= 6 || 'Password must be less than 6 characters'
+          ],
+          confirmPasswordRules: [
+            v => !!v || 'Password is required',
+            v => v === this.password || 'Password should match'
+          ]
         }
+      },
+      methods: {
+        onSubmit () {
+          if (this.$refs.form.validate()) {
+            const user = {
+              email: this.email,
+              password: this.password
+            }
+            console.log(user)
+          }
+        }
+      }
     }
 </script>
 

@@ -30,24 +30,24 @@
 
 <script>
     export default {
-        data () {
-            return {
-                orders: [
-                    {
-                        Id: '123dfg',
-                        name: 'vlad',
-                        phone: '+56-535-345-345',
-                        adId: '145',
-                        done: false
-                    }
-                ]
+      data () {
+        return {
+          orders: [
+            {
+              Id: '123dfg',
+              name: 'vlad',
+              phone: '+56-535-345-345',
+              adId: '145',
+              done: false
             }
-        },
-        methods: {
-            markDone(order) {
-                order.done = true
-            }
+          ]
         }
+      },
+      methods: {
+        markDone (order) {
+          order.done = true
+        }
+      }
     }
 </script>
 
