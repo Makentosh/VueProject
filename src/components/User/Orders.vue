@@ -9,7 +9,7 @@
                         <v-list-tile-action>
                             <v-checkbox
                                     :input-value="order.done"
-                            @click="markDone(order)"
+                            @change="markDone(order)"
                             color="success"></v-checkbox>
                         </v-list-tile-action>
                         <v-list-tile-content>
@@ -36,7 +36,7 @@
             {
               Id: '123dfg',
               name: 'vlad',
-              phone: '+56-535-345-345',
+              phone: '56-535-345-345',
               adId: '145',
               done: false
             }
