@@ -1,4 +1,3 @@
-/* eslint-disable */
 <template>
     <v-container>
         <v-layout row>
@@ -50,7 +49,8 @@
                         <v-spacer></v-spacer>
                         <v-btn
                         class="success"
-                       :disabled="!valid"
+                        :loading="loading"
+                       :disabled="!valid || loading"
                         @click="createAd">Create ad</v-btn>
                     </v-flex>
                 </v-layout>
@@ -69,7 +69,6 @@
           valid: false
         }
       },
-
       methods: {
         createAd () {
           if (this.$refs.form.validate()) {
@@ -80,7 +79,16 @@
               imageSrc: 'https://i.pinimg.com/originals/c5/6d/77/c56d77398e83eb02a033511a95dde108.jpg'
             }
             this.$store.dispatch('createAd', ad)
+              .then(() => {
+                this.$router.push('/list')
+              })
+            .catch(() => {})
           }
+        }
+      },
+      computed: {
+        loading () {
+          return this.$store.getters.loading
         }
       }
     }
