@@ -1,4 +1,7 @@
-import * as fb from 'firebase'
+// import * as fb from 'firebase'
+import fb from 'firebase/app'
+import 'firebase/database'
+import 'firebase/storage'
 
 class Ad {
   constructor (title, description, ownerId, imageSrc = '', promo = false, id = null) {
@@ -47,7 +50,8 @@ export default {
         const ad = await fb.database().ref('ads').push(newAd)
         const imageExt = image.name.slice(image.name.lastIndexOf('.'))
         const fileData = await fb.storage().ref(`ads/${ad.key}.${imageExt}`).put(image)
-        const imageSrc = fileData.metadata.downloadURLs[0]
+        // const imageSrc = await fileData.metadata.getDownloadURL()
+        const imageSrc = await fb.storage().ref().child(fileData.ref.fullPath).getDownloadURL()
         await fb.database().ref('ads').child(ad.key).update({
           imageSrc
         })

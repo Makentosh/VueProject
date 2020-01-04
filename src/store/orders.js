@@ -1,4 +1,7 @@
-import * as fb from 'firebase'
+// import * as fb from 'firebase'
+import fb from 'firebase/app'
+import 'firebase/database'
+import 'firebase/storage'
 
 class Order {
   constructor (name, phone, adId, done = false, id = null) {
@@ -30,10 +33,11 @@ export default {
         throw error
       }
     },
-    async fetchOrders ({commit}, getters) {
+    async fetchOrders ({commit, getters}) {
       commit('setLoading', true)
       commit('clearError')
       const resultOrders = []
+      console.log(resultOrders)
       try {
         const fbVal = await fb.database().ref(`/users/${getters.user.id}/orders`).once('value')
         const orders = fbVal.val()
@@ -44,6 +48,7 @@ export default {
             new Order(o.name, o.phone, o.adId, o.done, key)
           )
         })
+        console.log(fbVal)
         commit('loadOrders', resultOrders)
         commit('setLoading', false)
       } catch (error) {
